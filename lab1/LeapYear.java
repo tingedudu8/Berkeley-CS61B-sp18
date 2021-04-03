@@ -2,7 +2,7 @@
  *  @author tinge
  */
 public class LeapYear {
-
+    public static void
     /** Calls isLeapYear to print correct statement.
      *  @param  year to be analyzed
      */
