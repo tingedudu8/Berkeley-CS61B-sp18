@@ -1,10 +1,10 @@
 /**
- *  Tests the Planet constructor.
+ *  Tests the Planet.java constructor.
  */
 public class TestPlanetConstructor {
 
     /**
-     *  Tests the Planet constructor to make sure it's working correctly.
+     *  Tests the Planet.java constructor to make sure it's working correctly.
      */
     public static void main(String[] args) {
         checkPlanetConstructor();
@@ -40,11 +40,11 @@ public class TestPlanetConstructor {
     }
 
     /**
-     *  Checks Planet constructors to make sure they are setting instance
+     *  Checks Planet.java constructors to make sure they are setting instance
      *  variables correctly.
      */
     private static void checkPlanetConstructor() {
-        System.out.println("Checking first Planet constructor...");
+        System.out.println("Checking first Planet.java constructor...");
 
         double xxPos = 1.0,
                yyPos = 2.0,
@@ -63,7 +63,7 @@ public class TestPlanetConstructor {
         checkEquals(mass, p.mass, "mass");
         checkStringEquals(imgFileName, p.imgFileName, "path to image");
 
-        System.out.println("Checking second Planet constructor...");
+        System.out.println("Checking second Planet.java constructor...");
 
         Planet pCopy = new Planet(p);
         checkEquals(p.xxPos, pCopy.xxPos, "xxPos");

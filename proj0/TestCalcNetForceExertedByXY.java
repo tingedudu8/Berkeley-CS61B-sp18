@@ -40,7 +40,7 @@ public class TestCalcNetForceExertedByXY {
     }
 
     /**
-     *  Checks the Planet class to make sure calcNetForceExertedByXY works.
+     *  Checks the Planet.java class to make sure calcNetForceExertedByXY works.
      */
     private static void calcNetForceExertedByXY() {
         System.out.println("Checking calcNetForceExertedByXY...");

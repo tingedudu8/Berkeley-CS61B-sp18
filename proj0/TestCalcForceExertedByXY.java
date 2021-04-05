@@ -42,7 +42,7 @@ public class TestCalcForceExertedByXY {
     }
 
     /**
-     *  Checks the Planet class to make sure calcForceExertedByXY works.
+     *  Checks the Planet.java class to make sure calcForceExertedByXY works.
      */
     private static void checkCalcForceExertedByXY() {
         System.out.println("Checking calcForceExertedByX and calcForceExertedByY...");

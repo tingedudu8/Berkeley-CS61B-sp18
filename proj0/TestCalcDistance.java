@@ -28,7 +28,7 @@ public class TestCalcDistance {
     }
 
     /**
-     *  Checks the Planet class to make sure calcDistance works.
+     *  Checks the Planet.java class to make sure calcDistance works.
      */
     private static void checkCalcDistance() {
         System.out.println("Checking calcDistance...");

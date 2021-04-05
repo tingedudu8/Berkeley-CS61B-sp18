@@ -1,7 +1,7 @@
 import java.math.*;
 
 /**
- *  Tests Planet's update() method
+ *  Tests Planet.java's update() method
  */
 public class TestUpdate {
 
@@ -30,7 +30,7 @@ public class TestUpdate {
 
 
     /**
-     *  Checks the Planet class to make sure update works.
+     *  Checks the Planet.java class to make sure update works.
      */
     private static void checkUpdate() {
         System.out.println("Checking update...");
