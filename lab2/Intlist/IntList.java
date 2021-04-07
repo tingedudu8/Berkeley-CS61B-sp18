@@ -81,10 +81,32 @@ public class IntList {
      */
 
     public static IntList dcatenate(IntList A, IntList B) {
-        if (A.rest == null) {    
-            A.rest = B;
+        if (A == null) {    
+            A = B;
+            return A;
+        } else {
+            A.rest = IntList.catenate(A.rest, B);
+            return A;
         }
         //TODO:  fill in method
+    }
+
+    public static IntList dcatenateIterative1(IntList A, IntList B) {
+        while (A != null) {
+            A = A.rest;
+            continue;
+        } 
+        A.rest = B;
+        return A;
+    }
+
+    public static IntList dcatenateIterative2(IntList A, IntList B) {
+        IntList res = A;
+        while (res.rest != null) {
+            res = res.rest;
+            continue;
+        }
+        res.rest = B;
         return A;
     }
 
@@ -93,17 +115,36 @@ public class IntList {
      * * elements of B.  May NOT modify items of A.  Use 'new'.
      */
     public static IntList catenate(IntList A, IntList B) {
-        IntList p = new IntList(A.first, A.rest);
-        while (p.rest == null) {
-            p.rest = B;
+        if (A == null) {
+            return B;
+        } else {
+            return new IntList(A.first, catenate(A.rest, B));
         }
         //TODO:  fill in method
-        return p;
     }
 
+    public static IntList catenateIterative1(IntList A, IntList B) {
+        IntList res = A;
+        while (res.rest != null) {
+            res = res.rest;
+            continue;
+        }
+        res.rest = B;
+        return res;
+    }
 
-
-
+    public static IntList catenateIterative2(IntList A, IntList B) {
+        IntList newA = new IntList(A.first, null);
+        IntList res = newA;
+        IntList currentA = A.rest;
+        while (currentA != null) {
+            res.rest = new IntList(currentA.first, null);
+            res = res.rest;
+            currentA = currentA.rest;
+        }
+        res.rest = B;
+        return newA;
+    }
 
 
 
