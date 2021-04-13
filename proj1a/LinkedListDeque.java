@@ -77,7 +77,7 @@ public class LinkedListDeque<T> {
 
     //Removes and returns the item at the front of the deque. If no such item exists, returns null.
     public T removeFirst() {
-        if(sentinel.next == sentinel) {
+        if (sentinel.next == sentinel) {
             return null;
         }
         T removed = sentinel.next.item;
@@ -90,7 +90,7 @@ public class LinkedListDeque<T> {
 
     // Removes and returns the item at the back of the deque. If no such item exists, returns null.
     public T removeLast() {
-        if(sentinel.prev == sentinel) {
+        if (sentinel.prev == sentinel) {
             return null;
         }
         T removed = sentinel.prev.item;
@@ -109,7 +109,7 @@ public class LinkedListDeque<T> {
         }
 
         Node back = sentinel.next;
-        while(index != 0 ) {
+        while (index != 0) {
             back = back.next;
             index--;
         }
@@ -117,22 +117,24 @@ public class LinkedListDeque<T> {
     }
 
     // Same as get, but uses recursion.
-   private T getRecursiveHelper(Node currentNode, int index) {
-       if (index == 0) {
-           return currentNode.item;
-       }
-       return getRecursiveHelper(currentNode.next, index - 1);
-   }
+    private T getRecursiveHelper(Node currentNode, int index) {
+        if (index == 0) {
+            return currentNode.item;
+        }
+        return getRecursiveHelper(currentNode.next, index - 1);
+    }
 
-   public T getRecursive(int index) {
-       if (index >= size) {
-           return null;
-       }
+    public T getRecursive(int index) {
+        if (index >= size) {
+            return null;
+        }
 
-       return getRecursiveHelper(sentinel.next, index);
-   }
+        return getRecursiveHelper(sentinel.next, index);
+    }
 
 }
+
+
 
 
 
