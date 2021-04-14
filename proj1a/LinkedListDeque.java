@@ -64,14 +64,14 @@ public class LinkedListDeque<T> {
     @Rule: A single operation should be executed in constant time. */
     public void addFirst(T item) {
         sentinel.next = new Node(item, sentinel, sentinel.next);
-        // sentinel.next.next.prev = sentinel.next;
+        sentinel.next.next.prev = sentinel.next;
         size += 1;
     }
 
     //Adds an item of type T to the back of the deque.
     public void addLast(T item) {
         sentinel.prev = new Node(item, sentinel.prev, sentinel);
-        // sentinel.prev.prev.next = sentinel.prev;
+        sentinel.prev.prev.next = sentinel.prev;
         size += 1;
     }
 
@@ -80,6 +80,7 @@ public class LinkedListDeque<T> {
         if (sentinel.next == sentinel) {
             return null;
         }
+
         T removed = sentinel.next.item;
         sentinel.next = sentinel.next.next;
         sentinel.next.prev = sentinel;
