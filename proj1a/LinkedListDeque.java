@@ -31,7 +31,7 @@ public class LinkedListDeque<T> {
 
     //Returns true if deque is empty, false otherwise.
     public boolean isEmpty() {
-        return sentinel.next == sentinel;
+        return size == 0;
     }
 
     //Returns the number of items in the deque
@@ -81,9 +81,8 @@ public class LinkedListDeque<T> {
             return null;
         }
         T removed = sentinel.next.item;
-        sentinel.next = sentinel;
-        // sentinel.next = sentinel.next.next;
-        // sentinel.next.prev = sentinel;
+        sentinel.next = sentinel.next.next;
+        sentinel.next.prev = sentinel;
         size -= 1;
         return removed;
     }
@@ -94,9 +93,8 @@ public class LinkedListDeque<T> {
             return null;
         }
         T removed = sentinel.prev.item;
-        sentinel.prev = sentinel;
-        // sentinel.prev = sentinel.prev.prev;
-        // sentinel.prev.next = sentinel;
+        sentinel.prev = sentinel.prev.prev;
+        sentinel.prev.next = sentinel;
         size -= 1;
         return removed;
     }    
@@ -133,6 +131,9 @@ public class LinkedListDeque<T> {
     }
 
 }
+
+
+
 
 
 
