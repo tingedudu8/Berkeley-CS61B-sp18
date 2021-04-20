@@ -1,6 +1,6 @@
 public class Dog implements Comparable<Dog> {
-    public String name;
-    public int size;
+    private String name;
+    private int size;
 
     public Dog(String n, int s) {
         name = n;

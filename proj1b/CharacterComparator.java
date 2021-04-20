@@ -5,3 +5,8 @@ public interface CharacterComparator {
      * by the rules of the implementing class. */
     boolean equalChars(char x, char y);
 }
+
+
+
+
+
