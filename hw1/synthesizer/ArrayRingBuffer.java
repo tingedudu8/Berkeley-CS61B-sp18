@@ -72,18 +72,16 @@ public class ArrayRingBuffer<T> extends AbstractBoundedQueue<T> {
         return item;
     }
 
-    public Iterator<T> iterator() {
-        return new QueueIterator();
-    }
-
     private class QueueIterator implements Iterator<T> {
         private int wizPos = first;
         private int num = fillCount();
 
+        @Override
         public boolean hasNext() {
             return num > 0;
         }
 
+        @Override
         public T next() {
             T item = rb[wizPos];
             wizPos += 1;
@@ -94,6 +92,10 @@ public class ArrayRingBuffer<T> extends AbstractBoundedQueue<T> {
             return item;
         }
 
+    }
+    @Override
+    public Iterator<T> iterator() {
+        return new QueueIterator();
     }
 
 }
