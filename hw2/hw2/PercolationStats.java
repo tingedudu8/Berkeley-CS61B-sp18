@@ -32,15 +32,15 @@ public class PercolationStats {
 
     private void simulate() {
         for (int t = 0; t < T; t++) {
-            Percolation Nsystem = new pf.make(N);
-            while (!Nsystem.percolates()) {
+            Percolation system = pf.make(N);
+            while (!system.percolates()) {
                 int row = StdRandom.uniform(N);
                 int col = StdRandom.uniform(N);
-                if (!Nsystem.isOpen(row, col)) {
-                    Nsystem.open(row, col);
+                if (!system.isOpen(row, col)) {
+                    system.open(row, col);
                 }
             }
-            double threshold = (double) Nsystem.numberOfOpenSites() / (N * N);
+            double threshold = (double) system.numberOfOpenSites() / (N * N);
             thresholds[t] = threshold;
         }
     }

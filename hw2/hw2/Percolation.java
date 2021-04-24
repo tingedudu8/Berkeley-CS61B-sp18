@@ -7,6 +7,7 @@ public class Percolation {
     private boolean percolated = false;
     private boolean[] openIndex;
     private WeightedQuickUnionUF grid;
+    private WeightedQuickUnionUF secgrid;
     private int num = 0;
     private int sentinelT;
     private int sentinelB;
@@ -19,13 +20,16 @@ public class Percolation {
                     "N should be greater than 0 but given N = " + N + "."
             );
         }
+        this.N = N;
         openIndex = new boolean[N * N];
         for (int i = 0; i < N * N; i++) {
             openIndex[i] = false;
         }
+        // only virtual top site
+        grid = new WeightedQuickUnionUF(N * N + 1);
+        sentinelT = N * N;
         // virtual top site and bottom site
         grid = new WeightedQuickUnionUF(N * N + 2);
-        sentinelT = N * N + 2;
         sentinelB = N * N + 1;
     }
 
@@ -47,8 +51,7 @@ public class Percolation {
             throw new IndexOutOfBoundsException(
                     "Invalid argument given: row = " + row + " col = " + col + "."
             );
-        }
-        else if (!openIndex[getIndex(row, col)]) {
+        } else if (!openIndex[getIndex(row, col)]) {
             openIndex[getIndex(row, col)] = true;
             num += 1;
             if (row == 0) {
