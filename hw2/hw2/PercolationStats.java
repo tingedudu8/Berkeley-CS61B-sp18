@@ -22,12 +22,11 @@ public class PercolationStats {
             );
         }
 
-
+        this.N = N;
+        this.T = T;
+        this.pf = pf;
         thresholds = new double[T];
-
         simulate();
-
-
     }
 
     private void simulate() {

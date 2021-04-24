@@ -3,6 +3,7 @@ package hw2;
 import edu.princeton.cs.algs4.WeightedQuickUnionUF;
 
 public class Percolation {
+
     private int N;
     private boolean percolated = false;
     private boolean[] openIndex;
@@ -29,7 +30,7 @@ public class Percolation {
         grid = new WeightedQuickUnionUF(N * N + 1);
         sentinelT = N * N;
         // virtual top site and bottom site
-        grid = new WeightedQuickUnionUF(N * N + 2);
+        secgrid = new WeightedQuickUnionUF(N * N + 2);
         sentinelB = N * N + 1;
     }
 
@@ -56,23 +57,28 @@ public class Percolation {
             num += 1;
             if (row == 0) {
                 grid.union(getIndex(row, col), sentinelT);
+                secgrid.union(getIndex(row, col), sentinelT);
             }
             if (validIndex(row - 1, col) && openIndex[getIndex(row - 1, col)]) {
                 grid.union(getIndex(row, col), getIndex(row - 1, col));
+                secgrid.union(getIndex(row, col), getIndex(row - 1, col));
             }
             if (validIndex(row + 1, col) && openIndex[getIndex(row + 1, col)]) {
                 grid.union(getIndex(row, col), getIndex(row + 1, col));
+                secgrid.union(getIndex(row, col), getIndex(row + 1, col));
             }
             if (validIndex(row, col - 1) && openIndex[getIndex(row, col - 1)]) {
                 grid.union(getIndex(row, col), getIndex(row, col - 1));
+                secgrid.union(getIndex(row, col), getIndex(row, col - 1));
             }
             if (validIndex(row, col + 1) && openIndex[getIndex(row, col + 1)]) {
                 grid.union(getIndex(row, col), getIndex(row, col + 1));
+                secgrid.union(getIndex(row, col), getIndex(row, col + 1));
             }
             if (row == N - 1) {
-                grid.union(getIndex(row, col), sentinelB);
+                secgrid.union(getIndex(row, col), sentinelB);
             }
-            if (grid.connected(sentinelT, sentinelB)) {
+            if (secgrid.connected(sentinelT, sentinelB)) {
                 percolated = true;
             }
         }
