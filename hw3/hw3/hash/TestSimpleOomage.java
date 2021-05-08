@@ -29,7 +29,7 @@ public class TestSimpleOomage {
         for (int r = 0; r <= 255; r += 5) {
             for (int g = 0; g <= 255; g += 5) {
                 for (int b = 0; b <= 255; b += 5) {
-                    SimpleOomage oo = new SimpleOomage(r,g,b);
+                    SimpleOomage oo = new SimpleOomage(r, g, b);
                     int ooHash = oo.hashCode();
                     assertTrue(!hashColor.contains(ooHash));
                     hashColor.add(ooHash);
