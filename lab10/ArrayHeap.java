@@ -239,19 +239,19 @@ public class ArrayHeap<T> implements ExtrinsicPQ<T> {
     @Override
     public void changePriority(T item, double priority) {
         Node node = new Node(item, priority);
-        T newItem = node.item();
-        for (int i = 0; i <= size; i += 1) {
-            double oldPriority = contents[i].myPriority;
-            if (newItem.equals(contents[i].myItem)) {
+        for (int i = 1; i <= size; i += 1) {
+            if (item.equals(contents[i].myItem)) {
+                double oldPriority = contents[i].myPriority;
                 contents[i].myPriority = node.myPriority;
-            }
-            if (oldPriority > node.myPriority) {
-                swim(i);
-            } else {
-                sink(i);
-            }
-        }
 
+                if (oldPriority > node.myPriority) {
+                    swim(i);
+                } else {
+                    sink(i);
+                }
+            }
+
+        }
     }
 
     /**
