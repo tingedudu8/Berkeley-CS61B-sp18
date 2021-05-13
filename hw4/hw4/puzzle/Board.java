@@ -31,10 +31,10 @@ public class Board implements WorldState {
 
     public String toString() {
         StringBuilder s = new StringBuilder();
-        int N = size();
-        s.append(N + "\n");
-        for (int i = 0; i < N; i++) {
-            for (int j = 0; j < N; j++) {
+        int n = size();
+        s.append(n + "\n");
+        for (int i = 0; i < n; i++) {
+            for (int j = 0; j < n; j++) {
                 s.append(String.format("%2d ", tileAt(i, j)));
             }
             s.append("\n");

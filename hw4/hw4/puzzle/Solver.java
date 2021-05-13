@@ -1,14 +1,14 @@
 package hw4.puzzle;
 
 import edu.princeton.cs.algs4.MinPQ;
+import edu.princeton.cs.algs4.Stack;
 
 import java.util.Comparator;
 import java.util.HashMap;
 import java.util.Map;
-import java.util.Stack;
-
 
 public class Solver {
+
     private class SearchNode {
         private WorldState state;
         private SearchNode prev;
@@ -39,7 +39,6 @@ public class Solver {
     }
 
     private Map<WorldState, Integer> edCaches = new HashMap<>();
-    private int searchCount = 0;
     private Stack<WorldState> path = new Stack<>();
 
     public Solver(WorldState initial) {
@@ -51,7 +50,6 @@ public class Solver {
                 if (currentNode.prev == null || !nextState.equals(currentNode.prev.state)) {
                     SearchNode nextNode = new SearchNode(nextState, currentNode);
                     minNode.insert(nextNode);
-                    searchCount += 1;
                 }
 
             }
@@ -70,10 +68,5 @@ public class Solver {
     public Iterable<WorldState> solution() {
         return path;
     }
-
-    int getSearchCount() {
-        return searchCount;
-    }
-
 
 }
