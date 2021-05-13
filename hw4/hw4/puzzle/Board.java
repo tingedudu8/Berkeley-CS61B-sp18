@@ -24,6 +24,7 @@ public class Board implements WorldState {
         }
         return tiles[i][j];
     }
+
     public int size() {
         return N;
     }
@@ -34,7 +35,7 @@ public class Board implements WorldState {
         s.append(N + "\n");
         for (int i = 0; i < N; i++) {
             for (int j = 0; j < N; j++) {
-                s.append(String.format("%2d ", tileAt(i,j)));
+                s.append(String.format("%2d ", tileAt(i, j)));
             }
             s.append("\n");
         }
@@ -82,8 +83,8 @@ public class Board implements WorldState {
     public int hamming() {
         int estimateDis = 0;
         int expectedVal = 1;
-        for (int i = 0; i < N - 1; i ++) {
-            for (int j = 0; j < N -1; j ++) {
+        for (int i = 0; i < N; i++) {
+            for (int j = 0; j < N; j++) {
                 if (expectedVal == N * N) {
                     break;
                 }
@@ -98,8 +99,8 @@ public class Board implements WorldState {
 
     public int manhattan() {
         int estimateDis = 0;
-        for (int r = 0; r < N - 1; r ++) {
-            for (int c = 0; c < N - 1; c ++) {
+        for (int r = 0; r < N; r++) {
+            for (int c = 0; c < N; c++) {
                 int actualVal = tileAt(r, c);
                 if (actualVal == 0) {
                     continue;

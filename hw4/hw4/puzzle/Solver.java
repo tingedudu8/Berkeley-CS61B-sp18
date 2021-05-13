@@ -2,7 +2,11 @@ package hw4.puzzle;
 
 import edu.princeton.cs.algs4.MinPQ;
 
-import java.util.*;
+import java.util.Comparator;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.Stack;
+
 
 public class Solver {
     private class SearchNode {
